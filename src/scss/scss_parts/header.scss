@@ -1,0 +1,28 @@
+.section-header {
+    width: 100%;
+    @include adapt-section-padding(120, 112, 120, 112);
+
+}
+
+.header {
+
+    &__title {
+        font-weight: 400;
+        @include adaptiv-font(36, 48);
+        line-height: 72px;
+        text-align: center;
+        letter-spacing: -0.015em;
+        max-width: 1392px;
+        width: 100%;
+    }
+
+    &__under-title {
+        margin-top: 30px;
+        @include adaptiv-font(28, 36);
+        line-height: 50px;
+        text-align: center;
+        letter-spacing: -0.015em;
+        color: $col1;
+    }
+}
+

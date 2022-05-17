@@ -1,0 +1,47 @@
+.section-form {
+    @include adapt-section-padding(120, 0, 140, 0);
+}
+.form-container {
+
+    &__title {
+        font-size: 20px;
+        @include font3;
+        line-height: 28px;
+        text-align: center;
+        margin-bottom: 47px;
+    }
+}
+.form {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__email-input {
+        @include form;
+        @include font3;
+        font-size: 20px;
+        line-height: 28px;
+        color: rgba(0, 0, 0, 0.5);
+        margin-bottom: 16px;
+    }
+
+    &__pas-input {
+        @include font3;
+        @include form;
+        font-size: 20px;
+        line-height: 28px;
+        color: rgba(0, 0, 0, 0.5);
+        margin-bottom: 24px;
+    }
+
+    &__btn-send {
+        @include font3;
+        @include form;
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
+        background: #000000;
+        padding:  21px 30px;
+        color: #FFFFFF;
+    }
+}

@@ -1,0 +1,31 @@
+.section-lorem-picture {
+    display: flex;
+}
+@media screen  and (max-width: 1024px){
+    .section-lorem-picture {
+        flex-direction: column-reverse;
+    }
+}
+.lorem-picture {
+    flex: 1 0 509px;
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.lorem-info-padding{
+    @include adapt-section-padding(120, 84, 166, 80);
+}
+.lorem-info__button-block-flex-mod{
+    flex-direction: row;
+    align-self: center;
+}
+.lorem-info__button-item-mar{
+    margin-bottom: 0;
+    margin-right: 20px;
+}
+.lorem-info__title-text-align{
+    text-align: start;
+}

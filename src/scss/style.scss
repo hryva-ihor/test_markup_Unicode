@@ -1,0 +1,272 @@
+//  start nuull style
+@import "scss_parts/nullstyle.scss";
+//  end null style
+
+
+@font-face {
+    font-family: 'Roboto';
+    font-display: swap;
+    src: url("../fonts/Roboto-Regular.woff") format("woff"),url("../fonts/Roboto-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    src: url("../fonts/Montserrat-Bold.woff") format("woff"),url("../fonts/Montserrat-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    src: url("../fonts/Montserrat-Regular.woff") format("woff"),url("../fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+// start mixin adaptive font size
+$maxWidth: 1680; 
+@mixin adaptiv-font($mobSize, $pcSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    @media screen and(max-width:1680px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    }
+    @media screen and(min-width: 1680px) {
+        font-size: $pcSize + px;
+    }
+	@media screen and(max-width: 320px) {
+        font-size: $mobSize + px;
+    }
+}
+// end mixin adaptive font size
+
+// start padding mixin 
+$maxWidth: 1680; 
+@mixin adapt-section-padding($padA, $padB, $padC, $padD) {
+    @media screen and(min-width: 1680px) {
+        padding: $padA + px $padB + px $padC + px $padD + px
+    }
+    @media screen and(max-width:1680px) {
+        padding: $padA * 0.8  + px $padB * 0.8  + px $padC * 0.8  + px $padD * 0.8  + px
+    }
+    @media screen and(max-width:1024px) {
+        padding: $padA * 0.3 + px $padB * 0.3 + px $padC * 0.3 + px $padD * 0.3 + px
+    }
+	@media screen and(max-width: 480px) {
+        padding: $padA * 0.1 + px $padB * 0.1 + px $padC * 0.1 + px $padD * 0.1 + px
+    }
+}
+// end padding mixin 
+
+// start font size variables (adaptive mixin)
+// 48 to 36 
+// 36 to 28
+// 24 to 18
+// 20 to 16
+// 18 to 14
+// start font size variables
+
+
+// start font mixin
+@mixin font1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+}
+@mixin font2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+}
+@mixin font3 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
+// end font mixin
+
+// start form mixin
+    @mixin form {
+        max-width: 420px;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        padding: 20px  30px 18px;
+    }
+// end form mixin
+
+$col1: rgba(0, 0, 0, 0.8);
+
+body{
+    @include font1;
+}
+section{
+    margin-bottom: 40px;
+    background-color: white;
+}
+.wrapper{
+    background-color: #E5E5E5;
+}
+.container{
+    max-width: 1680px;
+    margin: 0px auto;
+	
+}
+.secondary-container{
+    max-width: 1392px;
+    width: 100%;
+    margin: 0 auto;
+}
+.secondary-container__flex{
+    display: flex;
+    justify-content: center;
+}
+
+figure.zoom {
+    & img:hover {
+        opacity: 0;
+    }
+    img {
+        transition: opacity .5s;
+        display: inline-block;
+        width: 100%;
+    }
+    background-position: 50% 50%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    cursor: zoom-in;
+}
+
+.content{
+    &__items{
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(173px, 1fr));
+        column-gap: 83px;
+        row-gap: 20px;
+        }
+    @media screen and (max-width: 768px) {
+        &__items{
+            column-gap: 20px;
+        }
+    }
+    &__items-img {
+        width: 100%;
+        max-height: 73px;
+        height: 100%;
+        object-fit: cover;
+    }
+    @media screen and (min-width: 1400px) {
+        &__items-img {
+            max-width: 173px;
+        }
+    }
+}
+.content__items-width{
+    row-gap: 60px;
+}
+@media screen and (max-width: 768px) {
+    .content__items-width{
+        row-gap: 20px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .content__items-width{
+        max-width: 685px;
+    }
+}
+
+// start button hover effect
+.hover-effect {
+    position: relative;
+    z-index: 0;
+    
+}
+
+.hover-effect:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 50%;
+}
+.hover-effect.sendbtn:before{
+    border-radius: 5px;
+}
+.hover-effect:active {
+    color: #000
+}
+.hover-effect:active:after {
+    background: transparent;
+}
+.hover-effect:hover:before {
+    opacity: 1;
+}
+.hover-effect:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+}
+.hover-effect.sendbtn:after{
+    border-radius: 5px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+// end button hover effect
+
+// start scale img styles
+@media screen and (min-width: 1024px) {
+    .scale {
+        transition: 1s;
+    }
+    .scale:hover {
+        transform: scale(1.2);
+    }
+}
+// end scale img styles
+//! start import scss parts
+//  start main style
+@import "scss_parts/header.scss";
+//  end main style
+
+//  start company style
+@import "scss_parts/company.scss";
+//  end company style
+
+//  start company style
+@import "scss_parts/lorem.scss";
+//  end company style
+
+//  start company style
+@import "scss_parts/lorem-picture.scss";
+//  end company style
+
+//  start company style
+@import "scss_parts/form.scss";
+//  end company style
+// end import scss parts
+
